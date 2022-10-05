@@ -1,0 +1,16 @@
+#!/bin/env bash
+
+data=$( yad --form --field="Flag:CB" "\-m2o|\-o2m|\-h" \
+                   --field="Input File:FL" \
+                   --field="Output File:SFL" )
+
+flag=$( echo $data | awk -F "|" '{print $1}' )
+input=$( echo $data | awk -F "|" '{print $2}' )
+output=$( echo $data | awk -F "|" '{print $3}' )
+
+if [[ $input != "" ]];
+then
+line-converter "${flag}g" $input $output
+else
+line-converter -h
+fi

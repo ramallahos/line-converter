@@ -1,0 +1,16 @@
+#!/bin/env bash
+
+if [[ $1 == "-m2o" ]];
+then
+    cat $2 | tr '\n' ' ' | tee -a $3
+elif [[ $1 == "-o2m" ]];
+then
+    for i in $(cat "$2"); do
+    echo "$i" | tee -a $3
+    done
+elif [[ $1 == "-h" ]];
+then
+    echo -ne "line-converter -m2o  Reads lines from inputfile and outputs a single line to outputfile. ( multiline to oneline ) \n line-converter -o2m  Reads words from inputfile and outputs lines to outputfile. ( oneline to multiline )"
+else
+    echo "Read manpage or type 'line-converter -h' for help."
+fi
