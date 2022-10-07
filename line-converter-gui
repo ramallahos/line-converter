@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-data=$( yad --form --field="Flag:CB" "\-m2o|\-o2m|\-h" \
+data=$( yad --form --field="Flag:CB" "\-m2o!\-o2m!\-h" \
                    --field="Input File:FL" \
                    --field="Output File:SFL" )
 
